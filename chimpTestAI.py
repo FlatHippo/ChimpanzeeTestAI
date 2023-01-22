@@ -47,21 +47,24 @@ def FindImages():
         #print(positions)
         ClickAllPositions()
         
-        
-while(True):
-    start = py.locateOnScreen('startButton.png')
-    if(start != None or keyboard.is_pressed("f")):
-        py.moveTo(start)
-        py.sleep(0.005)
-        py.click()
-        break
+text = py.confirm(text="Welcome to the Chimpanzee Test AI Program. To start, go to humanbenchmark.com and click on the chimpanzee test, then press OK. to cancel, press cancel. The program can be stopped at any time by holding 'Q' on your keyboard. Enjoy!")
+if(text == "OK"):
+    while(True):
+        start = py.locateOnScreen('startButton.png')
+        if(start != None or keyboard.is_pressed("f")):
+            py.moveTo(start)
+            py.sleep(0.005)
+            py.click()
+            break
 
-while(True):
-    if(keyboard.is_pressed("q")):
-        break
-    AddAllImagesToDict()
-    py.sleep(0.01)
-    FindImages()
-    buttons += 1
+    while(True):
+        if(keyboard.is_pressed("q")):
+            break
+        AddAllImagesToDict()
+        py.sleep(0.01)
+        FindImages()
+        buttons += 1
+else:
+    exit()
 
     
